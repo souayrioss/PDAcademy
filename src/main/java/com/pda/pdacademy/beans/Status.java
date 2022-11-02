@@ -1,7 +1,8 @@
 package com.pda.pdacademy.beans;
 
 public enum Status{
-    ACTIVE(1),DESACTIVE(2);
+    ENCOUR(1),TERMINE(2);
+
     private int index;
 
     Status(int index) {

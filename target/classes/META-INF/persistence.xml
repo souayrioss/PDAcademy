@@ -16,11 +16,11 @@
         <class>com.pda.pdacademy.beans.Types</class>
         <properties>
             <property name="hibernate.connection.driver_class" value="org.postgresql.Driver" />
-            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost/PDAcademy" />
-            <property name="hibernate.connection.username" value="postgres" />
-            <property name="hibernate.connection.password" value="brook" />
+            <property name="hibernate.connection.url" value="jdbc:postgresql://oap.coymh1rqxj1e.eu-west-3.rds.amazonaws.com/PDAcademy" />
+            <property name="hibernate.connection.username" value="daba" />
+            <property name="hibernate.connection.password" value="ym8aYGGtw$8WWe5t*" />
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
-            <property name="hibernate.hbm2ddl.auto" value="create-drop" />
+            <property name="hibernate.hbm2ddl.auto" value="update" />
 
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.format_sql" value="true" />

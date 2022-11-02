@@ -1,7 +1,7 @@
 package com.pda.pdacademy.beans;
 
 public enum Etats {
-    ENCOUR(1),TERMINE(2);
+    ACTIVE(1),DESACTIVE(2);
     private int index;
 
     Etats(int index) {
