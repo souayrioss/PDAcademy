@@ -9,7 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Participants extends Users implements Serializable {
+@PrimaryKeyJoinColumn( name = "id_user" )
+public class Participants extends Users {
 
     @NotNull(message = "email doesn't take a null value")
     @Email

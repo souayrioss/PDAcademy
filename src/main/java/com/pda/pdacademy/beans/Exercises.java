@@ -33,9 +33,8 @@ public class Exercises implements Serializable {
     @Column(name = "end_date_exercise")
     private Date end_date_exercise;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinColumn(name = "statut_id", unique = false, referencedColumnName = "id_statut")
-    private Status statut_id;
+    @Column(name = "statut")
+    private Status statut;
 
     @ManyToMany
     @JoinTable( name = "T_Activity_Exercise_Associations",
@@ -86,12 +85,12 @@ public class Exercises implements Serializable {
         this.end_date_exercise = end_date_exercise;
     }
 
-    public Status getStatut_id() {
-        return statut_id;
+    public Status getStatut() {
+        return statut;
     }
 
-    public void setStatut_id(Status statut_id) {
-        this.statut_id = statut_id;
+    public void setStatut(Status statut) {
+        this.statut = statut;
     }
 
     public List<Activities> getActivities() {
@@ -110,7 +109,7 @@ public class Exercises implements Serializable {
                 ", annee_exercise=" + annee_exercise +
                 ", start_date_exercise=" + start_date_exercise +
                 ", end_date_exercise=" + end_date_exercise +
-                ", statut_id=" + statut_id +
+                ", statut_id=" + statut +
                 ", activities=" + activities +
                 '}';
     }

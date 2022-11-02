@@ -7,13 +7,13 @@ import java.io.Serializable;
 import java.util.UUID;
 
 @Entity
-@Inheritance(strategy=InheritanceType.JOINED)
-public class Users implements Serializable {
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+public abstract class Users implements Serializable {
 
     @NotNull
     @Id
     @Column(name = "id_user")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private long id_user ;
 
     @Column(name = "uuid",length = 60)
@@ -31,14 +31,11 @@ public class Users implements Serializable {
     @Column(name = "phone")
     private String phone;
 
+    @Column(name = "role")
+    private Roles role;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinColumn(name = "role_id", unique = false, referencedColumnName = "id_role")
-    private Roles role_id;
-
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinColumn(name = "genre_id", unique = false, referencedColumnName = "id_genre")
-    private Genres genre_id;
+    @Column(name = "genre")
+    private Genres genre;
 
 
     public Users() {
@@ -69,20 +66,20 @@ public class Users implements Serializable {
         this.phone = phone;
     }
 
-    public Roles getRole_id() {
-        return role_id;
+    public Roles getRole() {
+        return role;
     }
 
-    public void setRole_id(Roles role_id) {
-        this.role_id = role_id;
+    public void setRole(Roles role) {
+        this.role = role;
     }
 
-    public Genres getGenre_id() {
-        return genre_id;
+    public Genres getGenre() {
+        return genre;
     }
 
-    public void setGenre_id(Genres genre_id) {
-        this.genre_id = genre_id;
+    public void setGenre(Genres genre) {
+        this.genre = genre;
     }
 
     @Override
@@ -93,8 +90,8 @@ public class Users implements Serializable {
                 ", first_name='" + first_name + '\'' +
                 ", last_name='" + last_name + '\'' +
                 ", phone='" + phone + '\'' +
-                ", genre=" + genre_id +
-                ", role=" + role_id +
+                ", genre=" + genre +
+                ", role=" + role+
                 '}';
     }
 }

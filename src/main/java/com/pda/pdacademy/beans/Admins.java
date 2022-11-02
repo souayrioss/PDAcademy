@@ -7,7 +7,8 @@ import jakarta.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Entity
-public class Admins extends Users implements Serializable {
+@PrimaryKeyJoinColumn( name = "id_user" )
+public class Admins extends Users {
 
     @NotNull(message = "login doesn't take a null value")
     @Column(name = "login")
@@ -22,11 +23,11 @@ public class Admins extends Users implements Serializable {
     @Column(name = "password")
     private String password;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinColumn(name = "etat_id", unique = false, referencedColumnName = "id_etat")
-    private Etats etat_id;
+    @Column(name = "etat")
+    private Etats etat;
 
     public Admins() {
+        super();
     }
 
     public String getLogin() {
@@ -54,20 +55,20 @@ public class Admins extends Users implements Serializable {
     }
 
     public Etats getEtat_id() {
-        return etat_id;
+        return etat;
     }
 
-    public void setEtat_id(Etats etat_id) {
-        this.etat_id = etat_id;
+    public void setEtat_id(Etats etat) {
+        this.etat = etat;
     }
 
     @Override
     public String toString() {
-        return "Admins{" +
+        return super.toString() + "Admins{" +
                 "login='" + login + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", etat_id=" + etat_id +
+                ", etat_id=" + etat +
                 '}';
     }
 }

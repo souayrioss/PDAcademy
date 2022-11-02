@@ -1,44 +1,18 @@
 package com.pda.pdacademy.beans;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
+public enum Etats {
+    ENCOUR(1),TERMINE(2);
+    private int index;
 
-@Entity
-public class Etats {
-    @NotNull
-    @Id
-    @Column(name = "id_etat")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id_etat ;
-
-    @NotNull(message = "number phone doesn't take a null value")
-    @Column(name = "name")
-    private EtatName name;
-
-    public Etats() {
+    Etats(int index) {
+        this.index = index;
     }
 
-    public long getId_etat() {
-        return id_etat;
+    public int getIndex() {
+        return index;
     }
 
-    public void setId_etat(long id_etat) {
-        this.id_etat = id_etat;
-    }
-
-    public EtatName getName() {
-        return name;
-    }
-
-    public void setName(EtatName name) {
-        this.name = name;
-    }
-
-    @Override
-    public String toString() {
-        return "Etats{" +
-                "id_etat=" + id_etat +
-                ", name=" + name +
-                '}';
+    public void setIndex(int index) {
+        this.index = index;
     }
 }

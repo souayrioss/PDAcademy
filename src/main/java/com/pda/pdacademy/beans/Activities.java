@@ -24,9 +24,8 @@ public class Activities implements Serializable {
     @Column(name = "title_activity")
     private String title_activity;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinColumn(name = "type_id", unique = false, referencedColumnName = "id_type")
-    private Types type_id;
+    @Column(name = "type")
+    private Types type;
 
     @NotNull(message = "description activity doesn't take a null value")
     @Column(name = "description_activity")
@@ -40,9 +39,8 @@ public class Activities implements Serializable {
     @Column(name = "end_date_activity")
     private Date end_date_activity;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinColumn(name = "etat_id", unique = false, referencedColumnName = "id_etat")
-    private Etats etat_id;
+    @Column(name = "etat")
+    private Etats etat;
 
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "responsable_id", unique = false, referencedColumnName = "id_user")
@@ -89,11 +87,11 @@ public class Activities implements Serializable {
     }
 
     public Types getType_id() {
-        return type_id;
+        return type;
     }
 
-    public void setType_id(Types type_id) {
-        this.type_id = type_id;
+    public void setType_id(Types type) {
+        this.type = type;
     }
 
     public String getDescription_activity() {
@@ -121,11 +119,11 @@ public class Activities implements Serializable {
     }
 
     public Etats getEtat_id() {
-        return etat_id;
+        return etat;
     }
 
-    public void setEtat_id(Etats etat_id) {
-        this.etat_id = etat_id;
+    public void setEtat_id(Etats etat) {
+        this.etat = etat;
     }
 
     public Responsables getResponsable_id() {
@@ -158,11 +156,11 @@ public class Activities implements Serializable {
                 "id_activity=" + id_activity +
                 ", uuid_activity=" + uuid_activity +
                 ", title_activity='" + title_activity + '\'' +
-                ", type_id=" + type_id +
+                ", type_id=" + type +
                 ", description_activity='" + description_activity + '\'' +
                 ", start_date_activity=" + start_date_activity +
                 ", end_date_activity=" + end_date_activity +
-                ", etat_id=" + etat_id +
+                ", etat_id=" + etat +
                 ", responsable_id=" + responsable_id +
                 ", participants=" + participants +
                 ", exercises=" + exercises +
