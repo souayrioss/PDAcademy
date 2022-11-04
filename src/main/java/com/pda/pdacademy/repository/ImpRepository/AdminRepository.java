@@ -18,7 +18,8 @@ public class AdminRepository implements Irepository<Admins> {
     @Override
     public boolean login(String Email, String Password) {
         Admins admin = new AdminRepository().findByEmail(Email);
-        if(admin.getEmail() == null){return false;}
+
+        if(admin == null){return false;}
         return  (admin.getPassword().equals(Password)) ? true : false;
     }
 

@@ -6,7 +6,7 @@ import jakarta.persistence.Persistence;
 
 public class HibernateFactory {
   public EntityManager getEntityManager(){
-    EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+    EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("PDAcademy");
     return entityManagerFactory.createEntityManager();
   }
 }

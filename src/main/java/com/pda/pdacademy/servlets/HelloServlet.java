@@ -1,6 +1,7 @@
 package com.pda.pdacademy.servlets;
 
 import java.io.*;
+import java.net.http.HttpClient;
 
 import com.pda.pdacademy.services.ImpService.AdminService;
 import jakarta.servlet.ServletException;
@@ -12,7 +13,7 @@ public class HelloServlet extends HttpServlet {
     private String message;
 
     public void init() {
-        message = "Hello World!";
+        message = null;
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -28,17 +29,16 @@ public class HelloServlet extends HttpServlet {
 
         boolean a = adminService.login(email,password);
         System.out.println(a);
-        String nom ;
 
-        if (a == true) {
-            nom = "yes";
-        }else {
-             nom = "nooooooooooo";
+
+        if (a == false) {
+
+            message = "password or email as incorrect";
+            request.setAttribute("message", message);
+            request.getRequestDispatcher("/index.jsp").forward(request, response);
+        }else{
+            request.getRequestDispatcher("/WEB-INF/bonjour.jsp").forward(request, response);
         }
-
-
-        request.setAttribute("nom", nom);
-        request.getRequestDispatcher("/WEB-INF/bonjour.jsp").forward(request, response);
     }
     public void destroy() {
     }
