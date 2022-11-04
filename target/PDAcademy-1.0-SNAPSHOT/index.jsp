@@ -8,6 +8,14 @@
 <h1><%= "Hello World!" %>
 </h1>
 <br/>
-<a href="hello-servlet">Hello Servlet</a>
+<form method="post" action="hello-servlet">
+    <label for="email">Nom : </label>
+    <input type="text" name="email" id="email" />
+    <br>
+    <label for="password">Nom : </label>
+    <input type="password" name="password" id="password" />
+    <br>
+    <input type="submit" />
+</form>
 </body>
 </html>

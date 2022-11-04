@@ -1,5 +1,6 @@
 import com.pda.pdacademy.beans.*;
 import com.pda.pdacademy.services.ImpService.AdminService;
+import com.pda.pdacademy.servlets.HelloServlet;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -10,6 +11,7 @@ public class Main {
       boolean a = adminService.login("souayrioss@gmail.com","azerty");
         System.out.println(a);
     }
+
 }
         /*EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("PDAcademy");
         System.out.println("entityManager open "+entityManagerFactory.isOpen());

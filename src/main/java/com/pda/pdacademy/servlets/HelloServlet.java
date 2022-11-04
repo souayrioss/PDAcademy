@@ -2,6 +2,8 @@ package com.pda.pdacademy.servlets;
 
 import java.io.*;
 
+import com.pda.pdacademy.services.ImpService.AdminService;
+import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
@@ -13,16 +15,31 @@ public class HelloServlet extends HttpServlet {
         message = "Hello World!";
     }
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.setContentType("text/html");
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        // Hello
-        PrintWriter out = response.getWriter();
-        out.println("<html><body>");
-        out.println("<h1>" + message + "</h1>");
-        out.println("</body></html>");
+        this.getServletContext().getRequestDispatcher("/WEB-INF/bonjour.jsp").forward(request, response);
     }
 
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+        AdminService adminService = new AdminService();
+
+        boolean a = adminService.login(email,password);
+        System.out.println(a);
+        String nom ;
+
+        if (a == true) {
+            nom = "yes";
+        }else {
+             nom = "nooooooooooo";
+        }
+
+
+        request.setAttribute("nom", nom);
+        request.getRequestDispatcher("/WEB-INF/bonjour.jsp").forward(request, response);
+    }
     public void destroy() {
     }
 }
