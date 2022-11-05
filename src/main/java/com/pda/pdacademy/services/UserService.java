@@ -1,17 +1,17 @@
 package com.pda.pdacademy.services;
 
-import com.pda.pdacademy.entity.Users;
+import com.pda.pdacademy.entity.User;
 import com.pda.pdacademy.repository.UserRepository;
 import com.pda.pdacademy.repository.Irepository;
 import com.pda.pdacademy.services.Iservice;
 
 import java.util.ArrayList;
 
-public class UserService implements Iservice<Users> {
+public class UserService implements Iservice<User> {
 
-    private Irepository<Users> userRepository = new UserRepository();
+    private Irepository<User> userRepository = new UserRepository();
     @Override
-    public Users login(String Email, String Password) {
+    public User login(String Email, String Password) {
         return userRepository.login(Email,Password);
     }
 
@@ -26,27 +26,27 @@ public class UserService implements Iservice<Users> {
     }
 
     @Override
-    public Users find(long id) {
+    public User find(long id) {
         return null;
     }
 
     @Override
-    public Users findByEmail(String Email) {
+    public User findByEmail(String Email) {
         return null;
     }
 
     @Override
-    public ArrayList<Users> getAll() {
+    public ArrayList<User> getAll() {
         return null;
     }
 
     @Override
-    public Users add(Users user) {
+    public User add(User user) {
         return null;
     }
 
     @Override
-    public Users update(Users user) {
+    public User update(User user) {
         return null;
     }
 

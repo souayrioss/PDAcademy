@@ -1,13 +1,13 @@
 package com.pda.pdacademy.services;
 
-import com.pda.pdacademy.beans.Responsables;
+import com.pda.pdacademy.entity.Responsable;
 import com.pda.pdacademy.services.Iservice;
 
 import java.util.ArrayList;
 
-public class ResponsableService implements Iservice<Responsables> {
+public class ResponsableService implements Iservice<Responsable> {
     @Override
-    public Responsables login(String Email, String Password) {
+    public Responsable login(String Email, String Password) {
         return null;
     }
 
@@ -22,27 +22,27 @@ public class ResponsableService implements Iservice<Responsables> {
     }
 
     @Override
-    public Responsables find(long id) {
+    public Responsable find(long id) {
         return null;
     }
 
     @Override
-    public Responsables findByEmail(String Email) {
+    public Responsable findByEmail(String Email) {
         return null;
     }
 
     @Override
-    public ArrayList<Responsables> getAll() {
+    public ArrayList<Responsable> getAll() {
         return null;
     }
 
     @Override
-    public Responsables add(Responsables user) {
+    public Responsable add(Responsable user) {
         return null;
     }
 
     @Override
-    public Responsables update(Responsables user) {
+    public Responsable update(Responsable user) {
         return null;
     }
 
