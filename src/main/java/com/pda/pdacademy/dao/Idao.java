@@ -1,5 +1,5 @@
 package com.pda.pdacademy.dao;
-import com.pda.pdacademy.beans.*;
+import com.pda.pdacademy.entity.*;
 import java.util.ArrayList;
 
 public interface Idao<Entity> {

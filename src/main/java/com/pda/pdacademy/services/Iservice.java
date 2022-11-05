@@ -3,7 +3,7 @@ package com.pda.pdacademy.services;
 import java.util.ArrayList;
 
 public interface Iservice<Entity> {
-    boolean login(String Email, String Password);
+    Entity login(String Email, String Password);
     void logout();
     boolean updatePasswordById(String newPassword, long user_id);
     Entity find(long id);
