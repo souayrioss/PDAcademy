@@ -10,10 +10,13 @@
 
 <html>
 <head>
-    <title>Title</title>
+    <title>PDAcademy</title>
+
 </head>
 <body>
-<c:out value="azertyuiuytre" ></c:out>
+<c:out value="${admin.first_name}" ></c:out>
+<br>
+<c:out value="${sessionScope.adminConn.first_name.concat(' ').concat(sessionScope.adminConn.last_name)} " />
 
 </body>
 </html>

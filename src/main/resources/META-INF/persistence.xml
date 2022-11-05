@@ -4,23 +4,23 @@
              xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
              version="3.0">
     <persistence-unit name="PDAcademy">
-        <class>com.pda.pdacademy.beans.Activities</class>
-        <class>com.pda.pdacademy.beans.Exercises</class>
-        <class>com.pda.pdacademy.beans.Responsables</class>
-        <class>com.pda.pdacademy.beans.Status</class>
-        <class>com.pda.pdacademy.beans.Types</class>
-        <class>com.pda.pdacademy.beans.Roles</class>
-        <class>com.pda.pdacademy.beans.Genres</class>
-        <class>com.pda.pdacademy.beans.Etats</class>
-        <class>com.pda.pdacademy.beans.Status</class>
-        <class>com.pda.pdacademy.beans.Types</class>
+        <class>com.pda.pdacademy.entity.Activities</class>
+        <class>com.pda.pdacademy.entity.Exercises</class>
+        <class>com.pda.pdacademy.entity.Responsables</class>
+        <class>com.pda.pdacademy.entity.Status</class>
+        <class>com.pda.pdacademy.entity.Types</class>
+        <class>com.pda.pdacademy.entity.Roles</class>
+        <class>com.pda.pdacademy.entity.Genres</class>
+        <class>com.pda.pdacademy.entity.Etats</class>
+        <class>com.pda.pdacademy.entity.Status</class>
+        <class>com.pda.pdacademy.entity.Types</class>
         <properties>
             <property name="hibernate.connection.driver_class" value="org.postgresql.Driver" />
-            <property name="hibernate.connection.url" value="jdbc:postgresql://oap.coymh1rqxj1e.eu-west-3.rds.amazonaws.com/PDAcademy" />
-            <property name="hibernate.connection.username" value="daba" />
-            <property name="hibernate.connection.password" value="ym8aYGGtw$8WWe5t*" />
+            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/PDAcademy" />
+            <property name="hibernate.connection.username" value="postgres" />
+            <property name="hibernate.connection.password" value="brook" />
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
-            <property name="hibernate.hbm2ddl.auto" value="update" />
+            <property name="hibernate.hbm2ddl.auto" value="create-drop" />
 
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.format_sql" value="true" />
