@@ -2,7 +2,7 @@ package com.pda.pdacademy.servlets;
 
 import java.io.*;
 
-import com.pda.pdacademy.entity.Admins;
+import com.pda.pdacademy.entity.Admin;
 import com.pda.pdacademy.services.AdminService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
@@ -27,7 +27,7 @@ public class HelloServlet extends HttpServlet {
         String password = request.getParameter("password");
         AdminService adminService = new AdminService();
 
-        Admins adminConnect = adminService.login(email,password);
+        Admin adminConnect = adminService.login(email,password);
 
 
         if (adminConnect == null) {
