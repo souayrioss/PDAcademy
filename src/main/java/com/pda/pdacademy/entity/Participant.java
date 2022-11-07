@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@PrimaryKeyJoinColumn( name = "id_user" )
 public class Participant extends User {
 
     @NotNull(message = "email doesn't take a null value")

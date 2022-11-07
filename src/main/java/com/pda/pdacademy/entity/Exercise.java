@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
+@Table(name ="exercise")
 public class Exercise implements Serializable {
 
     @NotNull

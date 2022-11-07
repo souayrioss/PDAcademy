@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Entity
-@PrimaryKeyJoinColumn( name = "id_user" )
+@Table(name ="responsable")
 public class Responsable extends User  {
 
     @NotNull(message = "domain doesn't take a null value")
