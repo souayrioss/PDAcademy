@@ -1,6 +1,8 @@
 package com.pda.pdacademy.servlets;
 
+import com.pda.pdacademy.entity.ActiviteType;
 import com.pda.pdacademy.entity.Activity;
+import com.pda.pdacademy.entity.Etat;
 import com.pda.pdacademy.services.ActivityService;
 import com.pda.pdacademy.services.Iservice;
 import jakarta.servlet.*;
@@ -9,6 +11,9 @@ import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @WebServlet(name = "manageActivity", urlPatterns = {"/activities", "/create-activity", "/insert-activity", "/update-activity", "/edit-activity"})
@@ -26,7 +31,6 @@ public class ActivityServlet extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     String action = request.getServletPath();
-    System.out.println(action);
     try{
       switch (action){
         case "/create-activity":
@@ -45,14 +49,16 @@ public class ActivityServlet extends HttpServlet {
           listActivities(request, response);
           break;
       }
-    } catch (SQLException ex) {
+    } catch (SQLException | ParseException ex) {
       throw  new ServletException();
     }
 
   }
 
   private void listActivities(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
+
     List<Activity> listActivities = activityService.getAll();
+    System.out.println(listActivities);
     request.setAttribute("activities", listActivities);
     RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/activities/index.jsp");
     dispatcher.forward(request, response);
@@ -67,12 +73,23 @@ public class ActivityServlet extends HttpServlet {
     dispatcher.forward(request, response);
   }
 
-  private void storeActivity(HttpServletRequest request, HttpServletResponse response) {
+  private void storeActivity(HttpServletRequest request, HttpServletResponse response) throws ParseException, SQLException, ServletException, IOException {
+    // create an instance of the data we get
+    Activity activity = new Activity();
+    activity.setTitle_activity(request.getParameter("title"));
+    activity.setDescription_activity(request.getParameter("description"));
+    activity.setActiviteType(ActiviteType.valueOf(request.getParameter("activity-type")));
+    activity.setEtat(Etat.valueOf(request.getParameter("activity-etat")));
+    activity.setStart_date_activity(new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("start-date")));
+    activity.setEnd_date_activity(new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("start-date")));
+    activityService.add(activity);
+    response.sendRedirect("activities");
   }
 
   private void createForm(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
+    request.setAttribute("activityTypes", ActiviteType.values());
+    request.setAttribute("etats", Etat.values());
     RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/activities/create.jsp");
     dispatcher.forward(request, response);
   }
-
 }

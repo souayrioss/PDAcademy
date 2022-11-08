@@ -7,7 +7,6 @@ import jakarta.persistence.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ActivityDao implements Idao<Activity> {
@@ -39,10 +38,12 @@ public class ActivityDao implements Idao<Activity> {
     }
 
     @Override
-    public Activity add(Activity activities) {
-      // TODO this method is not completed yet
-
-      return null;
+    public Activity add(Activity activity) {
+      transaction = (Transaction) em.getTransaction();
+      transaction.begin();
+      em.persist(activity);
+      transaction.commit();
+      return activity;
     }
 
     @Override

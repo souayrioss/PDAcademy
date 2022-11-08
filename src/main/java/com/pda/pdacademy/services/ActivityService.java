@@ -41,8 +41,8 @@ public class ActivityService implements Iservice<Activity> {
     }
 
     @Override
-    public Activity add(Activity user) {
-        return null;
+    public Activity add(Activity activity) {
+      return activityDao.add(activity);
     }
 
     @Override

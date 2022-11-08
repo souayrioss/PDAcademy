@@ -10,10 +10,38 @@
 
 <html>
 <head>
-  <title>Title</title>
+  <title>List of all activities</title>
 </head>
 <body>
 list all activities here
-<c:out value="${acitivities}" ></c:out>
+<div align="center">
+  <table border="1" cellpadding="5">
+    <caption><h2>List of Activities</h2></caption>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Country</th>
+      <th>Actions</th>
+    </tr>
+    <jsp:useBean id="activities" scope="request" type="java.util.List"/>
+    <c:forEach items="${activities}" var="activity">
+      <tr>
+        <td><c:out value="${activity.title_activity}" /></td>
+        <td><c:out value="${activity.activiteType}" /></td>
+        <td><c:out value="${activity.description_activity}" /></td>
+        <td><c:out value="${activity.start_date_activity}" /></td>
+        <td><c:out value="${activity.end_date_activity}" /></td>
+        <td><c:out value="${activity.etat}" /></td>
+
+        <td>
+          <a href="edit-activity?id=<c:out value='${activity.id_activity}' />">Edit</a>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+<%--          <a href="delete?id=<c:out value='${activity.id_activity}' />">Delete</a>--%>
+        </td>
+      </tr>
+    </c:forEach>
+  </table>
+</div>
 </body>
 </html>
