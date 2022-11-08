@@ -4,18 +4,14 @@
              xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
              version="3.0">
     <persistence-unit name="PDAcademy">
-        <class>com.pda.pdacademy.entity.Activity</class>
-        <class>com.pda.pdacademy.entity.Exercise</class>
-        <class>com.pda.pdacademy.entity.Responsable</class>
-      <class>com.pda.pdacademy.entity.Admin</class>
-      <class>com.pda.pdacademy.entity.Participant</class>
         <properties>
             <property name="hibernate.connection.driver_class" value="org.postgresql.Driver" />
-            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/PDAcademy" />
+            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost/PDAcademy" />
             <property name="hibernate.connection.username" value="postgres" />
-            <property name="hibernate.connection.password" value="postgres" />
+            <property name="hibernate.connection.password" value="brook" />
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
-            <property name="hibernate.hbm2ddl.auto" value="create-drop" />
+            <property name="hibernate.hbm2ddl.auto" value="update" />
+
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.format_sql" value="true" />
         </properties>

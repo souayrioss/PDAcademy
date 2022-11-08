@@ -1,3 +1,4 @@
+import com.pda.pdacademy.entity.*;
 
 public class Main {
     public static void main(String[] args) {
