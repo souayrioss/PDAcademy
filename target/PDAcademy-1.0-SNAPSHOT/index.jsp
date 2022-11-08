@@ -38,7 +38,7 @@
                             </c:if>
                         </div>
 
-                        <form method="post" action="hello-servlet">
+                        <form method="post" action="login">
                             <div class="form-group mb-3">
                                 <label class="label" >Login or email</label>
                                 <input type="text" name="email" class="form-control" placeholder="Entre Your Email Or Login " required>
