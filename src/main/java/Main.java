@@ -1,15 +1,6 @@
-import com.pda.pdacademy.beans.*;
-import com.pda.pdacademy.services.ImpService.AdminService;
-import com.pda.pdacademy.servlets.HelloServlet;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
 
 public class Main {
     public static void main(String[] args) {
-      AdminService adminService = new AdminService();
-      boolean a = adminService.login("souayrioss@gmail.com","azerty");
-        System.out.println(a);
     }
 
 }
