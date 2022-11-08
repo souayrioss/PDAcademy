@@ -7,6 +7,6 @@ public interface Idao<Entity> {
     Entity find(long id);
     List<Entity> getAll();
     Entity add(Entity entity);
-    Entity update(Entity entity);
+    void update(Entity entity);
     boolean delete(long id);
 }

@@ -45,8 +45,8 @@ public class UserService implements Iservice<User> {
     }
 
     @Override
-    public User update(User user) {
-        return null;
+    public void update(User user) {
+        return ;
     }
 
     @Override

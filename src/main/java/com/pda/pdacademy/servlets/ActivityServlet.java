@@ -56,19 +56,30 @@ public class ActivityServlet extends HttpServlet {
   }
 
   private void listActivities(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
-
     List<Activity> listActivities = activityService.getAll();
-    System.out.println(listActivities);
     request.setAttribute("activities", listActivities);
     RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/activities/index.jsp");
     dispatcher.forward(request, response);
   }
 
-  private void updateActivity(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
-
+  private void updateActivity(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException, ParseException {
+    Activity activityToUpdate = new Activity();
+    activityToUpdate.setId_activity(Long.parseLong(request.getParameter("id")));
+    activityToUpdate.setTitle_activity(request.getParameter("title"));
+    activityToUpdate.setDescription_activity(request.getParameter("description"));
+    activityToUpdate.setActiviteType(ActiviteType.valueOf(request.getParameter("activity-type")));
+    activityToUpdate.setEtat(Etat.valueOf(request.getParameter("activity-etat")));
+    activityToUpdate.setStart_date_activity(new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("start-date")));
+    activityToUpdate.setEnd_date_activity(new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("start-date")));
+    activityService.update(activityToUpdate);
+    response.sendRedirect("activities");
   }
 
   private void editForm(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+    Activity activityToEdit = activityService.find(Long.parseLong(request.getParameter("id")));
+    request.setAttribute("activity", activityToEdit);
+    request.setAttribute("activityTypes", ActiviteType.values());
+    request.setAttribute("etats", Etat.values());
     RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/activities/edit.jsp");
     dispatcher.forward(request, response);
   }

@@ -41,8 +41,8 @@ public class ExerciseService implements Iservice<Exercise> {
     }
 
     @Override
-    public Exercise update(Exercise user) {
-        return null;
+    public void update(Exercise user) {
+        return ;
     }
 
     @Override

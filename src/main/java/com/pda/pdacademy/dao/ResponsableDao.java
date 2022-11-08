@@ -23,8 +23,8 @@ public class ResponsableDao implements Idao<Responsable> {
     }
 
     @Override
-    public Responsable update(Responsable Responsable) {
-        return null;
+    public void update(Responsable Responsable) {
+        return;
     }
 
     @Override

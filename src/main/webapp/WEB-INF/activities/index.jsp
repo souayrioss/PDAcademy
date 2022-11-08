@@ -18,11 +18,13 @@ list all activities here
   <table border="1" cellpadding="5">
     <caption><h2>List of Activities</h2></caption>
     <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Country</th>
-      <th>Actions</th>
+      <th>title</th>
+      <th>type</th>
+      <th>description</th>
+      <th>start date</th>
+      <th>end date</th>
+      <th>etat</th>
+      <th>actions</th>
     </tr>
     <jsp:useBean id="activities" scope="request" type="java.util.List"/>
     <c:forEach items="${activities}" var="activity">

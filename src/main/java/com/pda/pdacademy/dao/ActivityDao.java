@@ -12,12 +12,16 @@ import java.util.List;
 public class ActivityDao implements Idao<Activity> {
   Transaction transaction = null;
 
-  private EntityManager em = new HibernateFactory().getEntityManager();
+  private final EntityManager em = new HibernateFactory().getEntityManager();
   // to work with session, uncomment the following line:
-  private Session session = em.unwrap(Session.class);
+  private final Session session = em.unwrap(Session.class);
     @Override
     public Activity find(long id) {
-        return null;
+      transaction = (Transaction) em.getTransaction();
+      transaction.begin();
+      Activity activity = em.find(Activity.class, id);
+      transaction.commit();
+      return activity;
     }
 
     @Override
@@ -47,8 +51,11 @@ public class ActivityDao implements Idao<Activity> {
     }
 
     @Override
-    public Activity update(Activity activities) {
-        return null;
+    public void update(Activity activity) {
+      transaction = (Transaction) em.getTransaction();
+      transaction.begin();
+      em.merge(activity);
+      transaction.commit();
     }
 
     @Override

@@ -10,6 +10,6 @@ public interface Iservice<Entity> {
     Entity findByEmail(String Email);
     List<Entity> getAll();
     Entity add(Entity user);
-    Entity update(Entity user);
+    void update(Entity user);
     boolean delete(long id);
 }

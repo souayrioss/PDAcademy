@@ -42,8 +42,8 @@ public class ParticipantService implements Iservice<Participant> {
     }
 
     @Override
-    public Participant update(Participant user) {
-        return null;
+    public void update(Participant user) {
+        return;
     }
 
     @Override
