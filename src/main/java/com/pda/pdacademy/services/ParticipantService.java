@@ -1,9 +1,9 @@
 package com.pda.pdacademy.services;
 
 import com.pda.pdacademy.entity.Participant;
-import com.pda.pdacademy.services.Iservice;
+import com.pda.pdacademy.entity.User;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class ParticipantService implements Iservice<Participant> {
     @Override
@@ -32,7 +32,7 @@ public class ParticipantService implements Iservice<Participant> {
     }
 
     @Override
-    public ArrayList<Participant> getAll() {
+    public List<Participant> getAll() {
         return null;
     }
 

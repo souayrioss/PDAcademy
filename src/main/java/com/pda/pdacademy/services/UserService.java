@@ -3,9 +3,8 @@ package com.pda.pdacademy.services;
 import com.pda.pdacademy.entity.User;
 import com.pda.pdacademy.repository.UserRepository;
 import com.pda.pdacademy.repository.Irepository;
-import com.pda.pdacademy.services.Iservice;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class UserService implements Iservice<User> {
 
@@ -36,7 +35,7 @@ public class UserService implements Iservice<User> {
     }
 
     @Override
-    public ArrayList<User> getAll() {
+    public List getAll() {
         return null;
     }
 

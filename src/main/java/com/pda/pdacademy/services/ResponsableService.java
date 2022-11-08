@@ -1,9 +1,9 @@
 package com.pda.pdacademy.services;
 
 import com.pda.pdacademy.entity.Responsable;
-import com.pda.pdacademy.services.Iservice;
+import com.pda.pdacademy.entity.User;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class ResponsableService implements Iservice<Responsable> {
     @Override
@@ -32,7 +32,7 @@ public class ResponsableService implements Iservice<Responsable> {
     }
 
     @Override
-    public ArrayList<Responsable> getAll() {
+    public List<Responsable> getAll() {
         return null;
     }
 

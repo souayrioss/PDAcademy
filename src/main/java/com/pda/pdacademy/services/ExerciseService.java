@@ -1,9 +1,8 @@
 package com.pda.pdacademy.services;
 
 import com.pda.pdacademy.entity.Exercise;
-import com.pda.pdacademy.services.Iservice;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class ExerciseService implements Iservice<Exercise> {
     @Override
@@ -32,7 +31,7 @@ public class ExerciseService implements Iservice<Exercise> {
     }
 
     @Override
-    public ArrayList<Exercise> getAll() {
+    public List<Exercise> getAll() {
         return null;
     }
 

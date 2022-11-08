@@ -1,11 +1,11 @@
 package com.pda.pdacademy.services;
 
 import com.pda.pdacademy.entity.Admin;
+import com.pda.pdacademy.entity.User;
 import com.pda.pdacademy.repository.AdminRepository;
 import com.pda.pdacademy.repository.Irepository;
-import com.pda.pdacademy.services.Iservice;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class AdminService implements Iservice<Admin> {
     private Irepository<Admin> adminRepository = new AdminRepository();
@@ -35,7 +35,7 @@ public class AdminService implements Iservice<Admin> {
     }
 
     @Override
-    public ArrayList<Admin> getAll() {
+    public List<Admin> getAll() {
         return null;
     }
 

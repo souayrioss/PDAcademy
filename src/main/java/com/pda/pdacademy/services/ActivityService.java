@@ -1,11 +1,15 @@
 package com.pda.pdacademy.services;
 
+import com.pda.pdacademy.dao.ActivityDao;
+import com.pda.pdacademy.dao.Idao;
 import com.pda.pdacademy.entity.Activity;
-import com.pda.pdacademy.services.Iservice;
+import com.pda.pdacademy.entity.User;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class ActivityService implements Iservice<Activity> {
+
+  private Idao<Activity> activityDao = new ActivityDao();
     @Override
     public Activity login(String Email, String Password) {
         return null;
@@ -32,8 +36,8 @@ public class ActivityService implements Iservice<Activity> {
     }
 
     @Override
-    public ArrayList<Activity> getAll() {
-        return null;
+    public List<Activity> getAll() {
+        return activityDao.getAll();
     }
 
     @Override

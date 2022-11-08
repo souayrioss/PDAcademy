@@ -1,6 +1,6 @@
 package com.pda.pdacademy.services;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public interface Iservice<Entity> {
     Entity login(String Email, String Password);
@@ -8,7 +8,7 @@ public interface Iservice<Entity> {
     boolean updatePasswordById(String newPassword, long user_id);
     Entity find(long id);
     Entity findByEmail(String Email);
-    ArrayList<Entity> getAll();
+    List<Entity> getAll();
     Entity add(Entity user);
     Entity update(Entity user);
     boolean delete(long id);
