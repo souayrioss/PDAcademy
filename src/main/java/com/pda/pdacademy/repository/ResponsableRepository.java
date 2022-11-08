@@ -24,4 +24,9 @@ public class ResponsableRepository implements Irepository<Responsable> {
     public Responsable findByEmail(String Email) {
         return null;
     }
+
+    @Override
+    public Responsable findByLogin(String Email) {
+        return null;
+    }
 }

@@ -14,7 +14,12 @@ public class AdminRepository implements Irepository<Admin> {
     public Admin login(String Email, String Password) {
         Admin admin = new AdminRepository().findByEmail(Email);
 
-        if(admin == null){return null;}
+        if(admin == null){
+            admin = new AdminRepository().findByLogin(Email);
+            if(admin == null ){
+                return null;
+            }
+        }
         return  (admin.getPassword().equals(Password)) ? admin : null;
     }
 
@@ -38,6 +43,20 @@ public class AdminRepository implements Irepository<Admin> {
             entityManager.getTransaction().begin();
             entityManager.getTransaction().commit();
             return entityManager.createQuery("SELECT adm FROM Admin adm WHERE adm.email LIKE :email",Admin.class).setParameter("email", Email).getSingleResult();
+        }catch(Exception e){
+            return null;
+        }
+    }
+    @Override
+    public Admin findByLogin(String Email) {
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("PDAcademy");
+        entityManagerFactory.isOpen();
+        try{
+            EntityManager entityManager = entityManagerFactory.createEntityManager();
+            entityManager.getTransaction().begin();
+            entityManager.getTransaction().commit();
+            return entityManager.createQuery("SELECT adm FROM Admin adm WHERE adm.login LIKE :email",Admin.class).setParameter("email", Email).getSingleResult();
         }catch(Exception e){
             return null;
         }

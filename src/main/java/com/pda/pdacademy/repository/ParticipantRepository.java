@@ -23,4 +23,9 @@ public class ParticipantRepository implements Irepository<Participant> {
     public Participant findByEmail(String Email) {
         return null;
     }
+
+    @Override
+    public Participant findByLogin(String Email) {
+        return null;
+    }
 }

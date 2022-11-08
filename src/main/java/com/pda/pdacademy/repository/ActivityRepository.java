@@ -25,5 +25,10 @@ public class ActivityRepository implements Irepository<Activity> {
         return null;
     }
 
+    @Override
+    public Activity findByLogin(String Email) {
+        return null;
+    }
+
 
 }

@@ -23,4 +23,9 @@ public class ExerciseRepository implements Irepository<Exercise> {
     public Exercise findByEmail(String Email) {
         return null;
     }
+
+    @Override
+    public Exercise findByLogin(String Email) {
+        return null;
+    }
 }

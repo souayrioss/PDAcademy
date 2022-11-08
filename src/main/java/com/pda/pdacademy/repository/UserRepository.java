@@ -28,4 +28,9 @@ public class UserRepository implements Irepository<User> {
     public User findByEmail(String Email) {
         return null;
     }
+
+    @Override
+    public User findByLogin(String Email) {
+        return null;
+    }
 }
