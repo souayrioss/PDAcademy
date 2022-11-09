@@ -1,7 +1,6 @@
 package com.pda.pdacademy.services;
 
 import com.pda.pdacademy.entity.Responsable;
-import com.pda.pdacademy.entity.User;
 
 import java.util.List;
 
@@ -42,8 +41,8 @@ public class ResponsableService implements Iservice<Responsable> {
     }
 
     @Override
-    public Responsable update(Responsable user) {
-        return null;
+    public void update(Responsable user) {
+        return;
     }
 
     @Override

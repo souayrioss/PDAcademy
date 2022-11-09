@@ -17,13 +17,13 @@ public class ParticipantDao implements Idao<Participant> {
     }
 
     @Override
-    public Participant add(Participant Participant) {
+    public Participant add(Participant participant) {
         return null;
     }
 
     @Override
-    public Participant update(Participant Participant) {
-        return null;
+    public void update(Participant participant) {
+        return;
     }
 
     @Override

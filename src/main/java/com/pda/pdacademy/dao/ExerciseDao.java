@@ -22,8 +22,8 @@ public class ExerciseDao implements Idao<Exercise> {
     }
 
     @Override
-    public Exercise update(Exercise Exercise) {
-        return null;
+    public void update(Exercise Exercise) {
+        return ;
     }
 
     @Override

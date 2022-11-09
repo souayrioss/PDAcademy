@@ -45,8 +45,8 @@ public class AdminService implements Iservice<Admin> {
     }
 
     @Override
-    public Admin update(Admin user) {
-        return null;
+    public void update(Admin user) {
+        return;
     }
 
     @Override

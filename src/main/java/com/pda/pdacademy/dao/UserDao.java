@@ -32,8 +32,8 @@ public class UserDao implements Idao<User> {
     }
 
     @Override
-    public User update(User User) {
-        return null;
+    public void update(User User) {
+        return;
     }
 
     @Override

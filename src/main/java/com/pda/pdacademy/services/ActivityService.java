@@ -27,7 +27,7 @@ public class ActivityService implements Iservice<Activity> {
 
     @Override
     public Activity find(long id) {
-        return null;
+        return activityDao.find(id);
     }
 
     @Override
@@ -41,13 +41,13 @@ public class ActivityService implements Iservice<Activity> {
     }
 
     @Override
-    public Activity add(Activity user) {
-        return null;
+    public Activity add(Activity activity) {
+      return activityDao.add(activity);
     }
 
     @Override
-    public Activity update(Activity user) {
-        return null;
+    public void update(Activity activity) {
+      activityDao.update(activity);
     }
 
     @Override

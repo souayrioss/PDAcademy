@@ -22,8 +22,8 @@ public class AdminDao implements Idao<Admin> {
     }
 
     @Override
-    public Admin update(Admin Admin) {
-        return null;
+    public void update(Admin Admin) {
+        return;
     }
 
     @Override
