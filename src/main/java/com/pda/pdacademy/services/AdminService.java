@@ -3,12 +3,12 @@ package com.pda.pdacademy.services;
 import com.pda.pdacademy.entity.Admin;
 import com.pda.pdacademy.entity.User;
 import com.pda.pdacademy.repository.AdminRepository;
-import com.pda.pdacademy.repository.Irepository;
+import com.pda.pdacademy.repository.IrepositoryAuth;
 
 import java.util.List;
 
 public class AdminService implements Iservice<Admin> {
-    private Irepository<Admin> adminRepository = new AdminRepository();
+    private IrepositoryAuth<Admin> adminRepository = new AdminRepository();
     @Override
     public Admin login(String Email, String Password) {
         return adminRepository.login(Email,Password);

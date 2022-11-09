@@ -1,14 +1,13 @@
 package com.pda.pdacademy.services;
 
 import com.pda.pdacademy.entity.User;
+import com.pda.pdacademy.repository.IrepositoryAuth;
 import com.pda.pdacademy.repository.UserRepository;
-import com.pda.pdacademy.repository.Irepository;
-
 import java.util.List;
 
 public class UserService implements Iservice<User> {
 
-    private Irepository<User> userRepository = new UserRepository();
+    private IrepositoryAuth<User> userRepository = new UserRepository();
     @Override
     public User login(String Email, String Password) {
         return userRepository.login(Email,Password);

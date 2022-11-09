@@ -4,7 +4,7 @@ import com.pda.pdacademy.entity.User;
 import com.pda.pdacademy.dao.Idao;
 import com.pda.pdacademy.dao.UserDao;
 
-public class UserRepository implements Irepository<User> {
+public class UserRepository implements IrepositoryAuth<User> {
     Idao<User> userDao = new UserDao();
 
     @Override
@@ -19,18 +19,10 @@ public class UserRepository implements Irepository<User> {
 
     }
 
-    @Override
-    public boolean updatePasswordById(String newPassword, long user_id) {
-        return false;
-    }
 
     @Override
     public User findByEmail(String Email) {
         return null;
     }
 
-    @Override
-    public User findByLogin(String Email) {
-        return null;
-    }
 }

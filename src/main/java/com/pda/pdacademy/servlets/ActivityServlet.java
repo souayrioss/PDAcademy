@@ -20,7 +20,7 @@ import java.util.List;
 public class ActivityServlet extends HttpServlet {
   private Iservice<Activity> activityService;
   public void init(){
-    activityService = new ActivityService();
+    //activityService = new ActivityService();
   }
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

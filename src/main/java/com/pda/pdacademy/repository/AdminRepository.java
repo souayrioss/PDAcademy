@@ -8,7 +8,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
-public class AdminRepository implements Irepository<Admin> {
+public class AdminRepository implements IrepositoryAuth<Admin> {
     Idao<Admin> adminDao = new AdminDao();
     @Override
     public Admin login(String Email, String Password) {
@@ -29,13 +29,7 @@ public class AdminRepository implements Irepository<Admin> {
     }
 
     @Override
-    public boolean updatePasswordById(String newPassword, long user_id) {
-        return false;
-    }
-
-    @Override
     public Admin findByEmail(String Email) {
-
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("PDAcademy");
         entityManagerFactory.isOpen();
         try{
@@ -47,7 +41,7 @@ public class AdminRepository implements Irepository<Admin> {
             return null;
         }
     }
-    @Override
+
     public Admin findByLogin(String Email) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("PDAcademy");

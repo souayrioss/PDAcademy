@@ -2,7 +2,8 @@
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-
+!**/src/main/webapp/css
+!**/src/main/webapp/images
 ### IntelliJ IDEA ###
 .idea/modules.xml
 .idea/jarRepositories.xml
