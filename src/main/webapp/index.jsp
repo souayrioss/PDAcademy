@@ -13,8 +13,6 @@
         <div class="row justify-content-center">
             <div class="col-md-12 col-lg-12">
                 <div class="wrap d-md-flex">
-                    <div class="img" style="background-image: url(images/logo.jpg);">
-                    </div>
                     <div class="login-wrap p-4 p-md-5">
                         <div class="d-flex">
                             <div class="w-100">
