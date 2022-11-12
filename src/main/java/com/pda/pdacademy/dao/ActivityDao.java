@@ -10,7 +10,7 @@ import org.hibernate.Transaction;
 import java.util.List;
 
 public class ActivityDao implements Idao<Activity> {
- /* Transaction transaction = null;
+  Transaction transaction = null;
 
   private final EntityManager em = new HibernateFactory().getEntityManager();
   // to work with session, uncomment the following line:
@@ -69,6 +69,4 @@ public class ActivityDao implements Idao<Activity> {
     public boolean delete(long id) {
         return false;
     }
-
-  */
 }

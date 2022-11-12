@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ResponsableDao implements Idao<Responsable> {
-    /*
     Transaction transaction = null;
 
     private final EntityManager em = new HibernateFactory().getEntityManager();
@@ -59,6 +58,4 @@ public class ResponsableDao implements Idao<Responsable> {
     public boolean delete(long id) {
         return false;
     }
-
-     */
 }
