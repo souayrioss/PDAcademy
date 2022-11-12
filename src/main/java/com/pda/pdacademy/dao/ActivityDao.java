@@ -10,7 +10,7 @@ import org.hibernate.Transaction;
 import java.util.List;
 
 public class ActivityDao implements Idao<Activity> {
-  Transaction transaction = null;
+ /* Transaction transaction = null;
 
   private final EntityManager em = new HibernateFactory().getEntityManager();
   // to work with session, uncomment the following line:
@@ -43,10 +43,17 @@ public class ActivityDao implements Idao<Activity> {
 
     @Override
     public Activity add(Activity activity) {
+      try  {
       transaction = (Transaction) em.getTransaction();
-      transaction.begin();
+      em.getTransaction().begin();
       em.persist(activity);
-      transaction.commit();
+      em.getTransaction().commit();
+    } catch (Exception e) {
+    if (em.getTransaction() != null) {
+      em.getTransaction().rollback();
+    }
+    e.printStackTrace();
+  }
       return activity;
     }
 
@@ -62,4 +69,6 @@ public class ActivityDao implements Idao<Activity> {
     public boolean delete(long id) {
         return false;
     }
+
+  */
 }

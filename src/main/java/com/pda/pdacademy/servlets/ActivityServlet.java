@@ -3,8 +3,10 @@ package com.pda.pdacademy.servlets;
 import com.pda.pdacademy.entity.ActiviteType;
 import com.pda.pdacademy.entity.Activity;
 import com.pda.pdacademy.entity.Etat;
+import com.pda.pdacademy.entity.Responsable;
 import com.pda.pdacademy.services.ActivityService;
 import com.pda.pdacademy.services.Iservice;
+import com.pda.pdacademy.services.ResponsableService;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -19,8 +21,9 @@ import java.util.List;
 @WebServlet(name = "manageActivity", urlPatterns = {"/activities", "/create-activity", "/insert-activity", "/update-activity", "/edit-activity"})
 public class ActivityServlet extends HttpServlet {
   private Iservice<Activity> activityService;
+  private Iservice<Responsable> responsableService;
   public void init(){
-    //activityService = new ActivityService();
+    activityService = new ActivityService();
   }
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -87,12 +90,16 @@ public class ActivityServlet extends HttpServlet {
   private void storeActivity(HttpServletRequest request, HttpServletResponse response) throws ParseException, SQLException, ServletException, IOException {
     // create an instance of the data we get
     Activity activity = new Activity();
+    responsableService = new ResponsableService();
     activity.setTitle_activity(request.getParameter("title"));
     activity.setDescription_activity(request.getParameter("description"));
     activity.setActiviteType(ActiviteType.valueOf(request.getParameter("activity-type")));
     activity.setEtat(Etat.valueOf(request.getParameter("activity-etat")));
     activity.setStart_date_activity(new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("start-date")));
     activity.setEnd_date_activity(new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("start-date")));
+    long id_res = Integer.parseInt(request.getParameter("responsable"));
+    Responsable responsable = responsableService.find(id_res);
+    activity.setResponsable_id(responsable);
     activityService.add(activity);
     response.sendRedirect("activities");
   }
@@ -100,6 +107,9 @@ public class ActivityServlet extends HttpServlet {
   private void createForm(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
     request.setAttribute("activityTypes", ActiviteType.values());
     request.setAttribute("etats", Etat.values());
+    responsableService = new ResponsableService();
+    List responsables = responsableService.getAll();
+    request.setAttribute("responsables" , responsables);
     RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/activities/create.jsp");
     dispatcher.forward(request, response);
   }

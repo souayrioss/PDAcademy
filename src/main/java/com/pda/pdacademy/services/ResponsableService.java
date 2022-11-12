@@ -1,10 +1,16 @@
 package com.pda.pdacademy.services;
 
+import com.pda.pdacademy.dao.ActivityDao;
+import com.pda.pdacademy.dao.Idao;
+import com.pda.pdacademy.dao.ResponsableDao;
+import com.pda.pdacademy.entity.Activity;
 import com.pda.pdacademy.entity.Responsable;
 
 import java.util.List;
 
 public class ResponsableService implements Iservice<Responsable> {
+
+    private Idao<Responsable> responsableIdao = new ResponsableDao();
     @Override
     public Responsable login(String Email, String Password) {
         return null;
@@ -22,7 +28,7 @@ public class ResponsableService implements Iservice<Responsable> {
 
     @Override
     public Responsable find(long id) {
-        return null;
+         return responsableIdao.find(id);
     }
 
     @Override
@@ -32,7 +38,7 @@ public class ResponsableService implements Iservice<Responsable> {
 
     @Override
     public List<Responsable> getAll() {
-        return null;
+        return responsableIdao.getAll();
     }
 
     @Override
@@ -42,7 +48,6 @@ public class ResponsableService implements Iservice<Responsable> {
 
     @Override
     public void update(Responsable user) {
-        return;
     }
 
     @Override

@@ -15,7 +15,8 @@ public class Activity implements Serializable {
     @NotNull
     @Id
     @Column(name = "id_activity")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "activiy_seq_gen")
+    @SequenceGenerator(name = "activiy_seq_gen", sequenceName = "activiy_id_seq" ,initialValue = 1,allocationSize = 1)
     private long id_activity ;
 
     @Column(name = "uuid_activity",length = 60)
@@ -63,6 +64,7 @@ public class Activity implements Serializable {
 
 
     public Activity() {
+        this.uuid_activity=UUID.randomUUID();
     }
 
     public long getId_activity() {

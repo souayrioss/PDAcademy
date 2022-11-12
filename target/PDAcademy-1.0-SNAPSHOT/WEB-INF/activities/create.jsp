@@ -47,6 +47,14 @@
     </select>
   </div>
   <div>
+    <label >Choose a type for this activity:</label>
+    <select  name="responsable">
+      <c:forEach items="${responsables}" var="responsable">
+        <option value="${responsable.id_user}">${responsable.first_name.concat(' ').concat(responsable.last_name).concat(' ').concat(responsable.id_user)}</option>
+      </c:forEach>
+    </select>
+  </div>
+  <div>
     <input type="submit" name="submit" value="submit">
   </div>
 </form>

@@ -13,7 +13,8 @@ public abstract class User implements Serializable {
     @NotNull
     @Id
     @Column(name = "id_user")
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq_gen")
+    @SequenceGenerator(name = "user_seq_gen", sequenceName = "user_id_seq" ,initialValue = 1,allocationSize = 1)
     private long id_user ;
 
     @Column(name = "uuid",length = 60)

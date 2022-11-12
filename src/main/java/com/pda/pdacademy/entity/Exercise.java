@@ -16,7 +16,8 @@ public class Exercise implements Serializable {
     @NotNull
     @Id
     @Column(name = "id_exercise")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "exercise_seq_gen")
+    @SequenceGenerator(name = "exercise_seq_gen", sequenceName = "exercise_id_seq" ,initialValue = 1,allocationSize = 1)
     private long id_exercise ;
 
     @Column(name = "uuid_exercise",length = 60)
