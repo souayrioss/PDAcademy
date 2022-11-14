@@ -58,7 +58,7 @@ public class ExerciseServlet extends HttpServlet {
     private void listActivities(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException{
         List<Exercise> exerciseList = exerciseService.getAll();
         request.setAttribute("exercises", exerciseList);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/activities/index.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/exercises/index.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -74,7 +74,7 @@ public class ExerciseServlet extends HttpServlet {
         request.setAttribute("activity", activityToEdit);
         //request.setAttribute("activityTypes", ActiviteType.values());
         //request.setAttribute("etats", Etat.values());
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/activities/edit.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/exercises/edit.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -102,7 +102,7 @@ public class ExerciseServlet extends HttpServlet {
         //responsableService = new ResponsableService();
         //List responsables = responsableService.getAll();
         //request.setAttribute("responsables" , responsables);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/activities/create.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/exercises/create.jsp");
         dispatcher.forward(request, response);
     }
 }

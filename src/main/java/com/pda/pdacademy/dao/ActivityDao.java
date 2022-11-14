@@ -43,17 +43,10 @@ public class ActivityDao implements Idao<Activity> {
 
     @Override
     public Activity add(Activity activity) {
-      try  {
       transaction = (Transaction) em.getTransaction();
-      em.getTransaction().begin();
+      transaction.begin();
       em.persist(activity);
-      em.getTransaction().commit();
-    } catch (Exception e) {
-    if (em.getTransaction() != null) {
-      em.getTransaction().rollback();
-    }
-    e.printStackTrace();
-  }
+      transaction.commit();
       return activity;
     }
 
