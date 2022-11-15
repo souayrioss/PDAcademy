@@ -1,45 +1,41 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: aslu
-  Date: 11/7/22
-  Time: 12:25 PM
+  Date: 11/14/22
+  Time: 3:27 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <html>
 <head>
-  <title>List of all activities</title>
+  <title>all exercises</title>
 </head>
 <body>
-list all activities here
+list all exercises here
 <div align="center">
   <table border="1" cellpadding="5">
-    <caption><h2>List of Activities</h2></caption>
+    <caption><h2>List of exercises</h2></caption>
     <tr>
       <th>title</th>
-      <th>type</th>
-      <th>description</th>
+      <th>year</th>
       <th>start date</th>
       <th>end date</th>
-      <th>etat</th>
-      <th>actions</th>
+      <th>status</th>
+      <th>Actions</th>
     </tr>
-    <jsp:useBean id="activities" scope="request" type="java.util.List"/>
-    <c:forEach items="${activities}" var="activity">
+    <jsp:useBean id="exercises" scope="request" type="java.util.List"/>
+    <c:forEach items="${exercises}" var="exercise">
       <tr>
-        <td><c:out value="${activity.title_activity}" /></td>
-        <td><c:out value="${activity.activiteType}" /></td>
-        <td><c:out value="${activity.description_activity}" /></td>
-        <td><c:out value="${activity.start_date_activity}" /></td>
-        <td><c:out value="${activity.end_date_activity}" /></td>
-        <td><c:out value="${activity.etat}" /></td>
-
+        <td><c:out value="${exercise.title}" /></td>
+        <td><c:out value="${exercise.year}" /></td>
+        <td><c:out value="${exercise.startDate}" /></td>
+        <td><c:out value="${exercise.endDate}" /></td>
+        <td><c:out value="${exercise.exerciseStatus}" /></td>
         <td>
-          <a href="edit-activity?id=<c:out value='${activity.id_activity}' />">Edit</a>
+          <a href="edit-exercise?id=<c:out value='${exercise.id}' />">Edit</a>
           &nbsp;&nbsp;&nbsp;&nbsp;
-<%--          <a href="delete?id=<c:out value='${activity.id_activity}' />">Delete</a>--%>
+          <a href="delete-exercise?id=<c:out value='${exercise.id}' />">Delete</a>
         </td>
       </tr>
     </c:forEach>

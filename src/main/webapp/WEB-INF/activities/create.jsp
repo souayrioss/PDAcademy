@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: aslu
-  Date: 11/8/22
-  Time: 11:05 AM
+  Date: 11/14/22
+  Time: 3:25 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -23,14 +23,6 @@
     <textarea name="description" rows="4" cols="50"></textarea>
   </div>
   <div>
-    <label >Choose a type for this activity:</label>
-    <select  name="activity-type">
-      <c:forEach items="${activityTypes}" var="enumValue">
-        <option value="${enumValue}">${enumValue}</option>
-      </c:forEach>
-    </select>
-  </div>
-  <div>
     <label>start date</label>
     <input type="date" name="start-date">
   </div>
@@ -40,17 +32,26 @@
   </div>
   <div>
     <label >Choose a type for this activity:</label>
-    <select  name="activity-etat">
-      <c:forEach items="${etats}" var="enumValue">
+    <select  name="activity-state">
+      <c:forEach items="${states}" var="enumValue">
+        <option value="${enumValue}">${enumValue}</option>
+      </c:forEach>
+    </select>
+  </div>
+  <div>
+    <label >Choose a type for this activity:</label>
+    <select  name="activity-type">
+      <c:forEach items="${activityTypes}" var="enumValue">
         <option value="${enumValue}">${enumValue}</option>
       </c:forEach>
     </select>
   </div>
   <div>
     <label >Choose a Responsible for this activity:</label>
-    <select  name="responsable">
-      <c:forEach items="${responsables}" var="responsable">
-        <option value="${responsable.id_user}">${responsable.first_name.concat(' ').concat(responsable.last_name).concat(' ').concat(responsable.id_user)}</option>
+    <select  name="responsible">
+      <jsp:useBean id="responsibles" scope="request" type="java.util.List"/>
+      <c:forEach items="${responsibles}" var="responsible">
+        <option value="${responsible.id}">${responsible.firstName}</option>
       </c:forEach>
     </select>
   </div>
@@ -60,3 +61,4 @@
 </form>
 </body>
 </html>
+

@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: aslu
-  Date: 11/8/22
-  Time: 11:05 AM
+  Date: 11/14/22
+  Time: 3:27 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -10,25 +10,17 @@
 
 <html>
 <head>
-  <title>create activity</title>
+  <title>create exercise</title>
 </head>
 <body>
-<form method="post" action="insert-activity">
+<form method="post" action="insert-exercise">
   <div>
-    <label>activity title</label><br>
+    <label>exercise title</label><br>
     <input type="text" name="title">
   </div>
   <div>
-    <label>activity description</label><br>
-    <textarea name="description" rows="4" cols="50"></textarea>
-  </div>
-  <div>
-    <label >Choose a type for this activity:</label>
-    <select  name="activity-type">
-      <c:forEach items="${activityTypes}" var="enumValue">
-        <option value="${enumValue}">${enumValue}</option>
-      </c:forEach>
-    </select>
+    <label>exercise year</label><br>
+    <input type="number" value="2022" min="2020" max="2030" name="year">
   </div>
   <div>
     <label>start date</label>
@@ -39,18 +31,10 @@
     <input type="date" name="end-date">
   </div>
   <div>
-    <label >Choose a type for this activity:</label>
-    <select  name="activity-etat">
-      <c:forEach items="${etats}" var="enumValue">
+    <label >exercise status</label>
+    <select  name="exercise-status">
+      <c:forEach items="${status}" var="enumValue">
         <option value="${enumValue}">${enumValue}</option>
-      </c:forEach>
-    </select>
-  </div>
-  <div>
-    <label >Choose a type for this activity:</label>
-    <select  name="responsable">
-      <c:forEach items="${responsables}" var="responsable">
-        <option value="${responsable.id_user}">${responsable.first_name.concat(' ').concat(responsable.last_name).concat(' ').concat(responsable.id_user)}</option>
       </c:forEach>
     </select>
   </div>

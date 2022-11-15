@@ -1,48 +1,41 @@
+<jsp:useBean id="exercise" scope="request" type="org.loukili.javac.entity.Exercise"/>
 <%--
   Created by IntelliJ IDEA.
   User: aslu
-  Date: 11/8/22
-  Time: 11:05 AM
+  Date: 11/14/22
+  Time: 3:27 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<jsp:useBean id="activity" scope="request" type="com.pda.pdacademy.entity.Activity"/>
+
 <html>
 <head>
-  <title>create activity</title>
+  <title>edit exercise</title>
 </head>
 <body>
-<form method="post" action="update-activity">
+<form method="post" action="update-exercise">
   <div>
-    <input type="hidden" name="id" value="<c:out value="${activity.id_activity}" />">
-    <label>activity title</label><br>
-    <input type="text" name="title" value="<c:out value="${activity.title_activity}" />">
+    <input type="hidden" name="id" value="${exercise.id}">
+    <label>exercise title</label><br>
+    <input type="text" name="title" value="${exercise.title}">
   </div>
   <div>
-    <label>activity description</label><br>
-    <textarea name="description" rows="4" cols="50"><c:out value="${activity.description_activity}" /></textarea>
-  </div>
-  <div>
-    <label >Choose a type for this activity:</label>
-    <select  name="activity-type">
-      <c:forEach items="${activityTypes}" var="enumValue">
-        <option value="${enumValue}">${enumValue}</option>
-      </c:forEach>
-    </select>
+    <label>exercise year</label><br>
+    <input type="number" value="${exercise.year}" min="2020" max="2030" name="year">
   </div>
   <div>
     <label>start date</label>
-    <input type="date" name="start-date" value="<c:out value="${activity.start_date_activity}" />">
+    <input type="date" name="start-date">
   </div>
   <div>
     <label>end date</label>
-    <input type="date" name="end-date" value="<c:out value="${activity.start_date_activity}" />">
+    <input type="date" name="end-date">
   </div>
   <div>
-    <label >Choose a type for this activity:</label>
-    <select  name="activity-etat">
-      <c:forEach items="${etats}" var="enumValue">
+    <label >exercise status</label>
+    <select  name="exercise-status">
+      <c:forEach items="${status}" var="enumValue">
         <option value="${enumValue}">${enumValue}</option>
       </c:forEach>
     </select>
